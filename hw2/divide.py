@@ -3,7 +3,8 @@ import math
 TEST = True
 question1 = False
 
-
+# Recursive function to sum numbers
+# This does NOT use the divide and conquer method
 def recursionsum(numbers,count,summ,location):
   size = len(numbers)
   i = count
@@ -21,14 +22,7 @@ def recursionsum(numbers,count,summ,location):
     print "Sum at", location, "is: ",summ
     arraysum(numbers,i+1,summ,location+1)
 
-
-
-
-
-
-
-
-
+# Routine to find the sum of the members of a given array
 def divideConquerSum(numbers):
   i = 0
   summ = 0
@@ -39,32 +33,27 @@ def divideConquerSum(numbers):
 
 #Now need to finish the level identification #'s
 
-def divide(numbers,level):
-  level += 1
+# Divide-and-Conquer method to find the sum of an array of numbers
+# 
+def divideAndConquer(numbers,level):
   print "level", level
+  level += 1
   if len(numbers) <= 4:
     summ = divideConquerSum(numbers)
     return summ
     #total += summ
   else:
     middle = len(numbers) / 2
-    firstHalf = numbers[:middle]
-    lastHalf = numbers[middle:]
-    
-    first = divide(firstHalf,level)
-    print "first", first
-    second = divide(lastHalf,level)
-    print "second", second
+    firstHalf = numbers[:middle]  # Split the origional array into
+    lastHalf = numbers[middle:]   #  a first and last half
+
+    first = divideAndConquer(firstHalf,level)
+    print "first half", first
+    second = divideAndConquer(lastHalf,level)
+    print "second half", second
     total = first + second
-    
+    print "total:",total
     return total
-
-
-
-
-
-
-
 
 
 if TEST == False:
@@ -75,9 +64,6 @@ if TEST == False:
 else: 
   numbers = range(1,17) #A small array I used for testing
 
-output = 0
-summ = 0
 location = 0
 print numbers
-#arraysum(numbers,output,summ,location)
-print divide(numbers,0)
+print divideAndConquer(numbers,location)
