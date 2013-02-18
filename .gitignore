@@ -1,0 +1,5 @@
+.DS_Store
+*~
+*.swp
+old/**/*
+hw1/solutions.txt
