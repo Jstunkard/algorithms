@@ -1,5 +1,8 @@
 .DS_Store
 *~
+**/*~
+**/**/*~
 *.swp
+old/*
 old/**/*
 hw1/solutions.txt
