@@ -1,6 +1,6 @@
 import random
 import math
-TEST = True
+TEST = False
 question1 = False
 
 # Recursive function to sum numbers
@@ -20,7 +20,7 @@ def recursionsum(numbers,count,summ,location):
   else:
     summ += numbers[i]
     print "Sum at", location, "is: ",summ
-    arraysum(numbers,i+1,summ,location+1)
+    recursionsum(numbers,i+1,summ,location+1)
 
 # Routine to find the sum of the members of a given array
 def divideConquerSum(numbers):
@@ -34,7 +34,7 @@ def divideConquerSum(numbers):
 #Now need to finish the level identification #'s
 
 # Divide-and-Conquer method to find the sum of an array of numbers
-# 
+# Must be passed and array of numbers and the default starting recursion level (0)
 def divideAndConquer(numbers,level):
   print "level", level
   level += 1
@@ -62,8 +62,10 @@ if TEST == False:
   numbers = map(int, bar.split(', '))
   
 else: 
-  numbers = range(1,17) #A small array I used for testing
+  numbers = range(1,513) #A small array I used for testing
 
 location = 0
 print numbers
 print divideAndConquer(numbers,location)
+# Recursion function I used to compare the Divide and Conguer function with
+#print recursionsum(numbers,0,0,0)
